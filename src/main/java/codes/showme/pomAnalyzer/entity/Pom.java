@@ -21,7 +21,7 @@ public class Pom {
     private Scm scm;
     private Management issueManagement;
     private Management ciManagement;
-    private Map<String,String> properties;
+    private Map<String, String> properties;
     private DependencyManagement dependencyManagement;
     private List<Dependency> dependencies;
     private List<Profile> profiles;
