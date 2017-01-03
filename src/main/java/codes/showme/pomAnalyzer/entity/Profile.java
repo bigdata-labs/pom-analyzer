@@ -1,5 +1,6 @@
 package codes.showme.pomAnalyzer.entity;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -10,9 +11,8 @@ public class Profile {
     private Build build;
     private Activation activation;
     private Map<String, String> properties;
-    //todo convert to object
-    private String repositories;
-    private String pluginRepositories;
+    private List<Repository> repositories;
+    private List<Repository> pluginRepositories;
 
     public String getId() {
         return this.id;
@@ -38,19 +38,19 @@ public class Profile {
         this.activation = activation;
     }
 
-    public String getRepositories() {
+    public List<Repository> getRepositories() {
         return this.repositories;
     }
 
-    public void setRepositories(String repositories) {
+    public void setRepositories(List<Repository> repositories) {
         this.repositories = repositories;
     }
 
-    public String getPluginRepositories() {
+    public List<Repository> getPluginRepositories() {
         return this.pluginRepositories;
     }
 
-    public void setPluginRepositories(String pluginRepositories) {
+    public void setPluginRepositories(List<Repository> pluginRepositories) {
         this.pluginRepositories = pluginRepositories;
     }
 
@@ -80,6 +80,54 @@ public class Profile {
 
         public void setProperty(Map<String, String> property) {
             this.property = property;
+        }
+    }
+
+    public static class Repository {
+        private String id;
+        private String url;
+        private String name;
+        private Map<String, String> releases;
+        private Map<String, String> snapshots;
+
+        public String getId() {
+            return this.id;
+        }
+
+        public void setId(String id) {
+            this.id = id;
+        }
+
+        public String getUrl() {
+            return this.url;
+        }
+
+        public void setUrl(String url) {
+            this.url = url;
+        }
+
+        public String getName() {
+            return this.name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public Map<String, String> getReleases() {
+            return this.releases;
+        }
+
+        public void setReleases(Map<String, String> releases) {
+            this.releases = releases;
+        }
+
+        public Map<String, String> getSnapshots() {
+            return this.snapshots;
+        }
+
+        public void setSnapshots(Map<String, String> snapshots) {
+            this.snapshots = snapshots;
         }
     }
 }

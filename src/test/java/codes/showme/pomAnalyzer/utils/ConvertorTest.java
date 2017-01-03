@@ -5,7 +5,10 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * Created by jeremie on 2017/1/2.
@@ -25,7 +28,7 @@ public class ConvertorTest {
         for (File file : files) {
             System.out.println(file.getName());
         }*/
-        String path = "/Users/jeremie/programme/IdeaProjects/pom-analyzer/demo/spring-boot-starter-redis-1.4.3.RELEASE.pom";
+        String path = "D:\\temporary\\programme\\IdeaProjects\\pom-analyzer\\demo\\spring-boot-parent-1.4.3.RELEASE.pom";
         File pomFile = new File(path);
         Converter convertor = new Converter();
         InputStream inputStream = new FileInputStream(pomFile);

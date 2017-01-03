@@ -12,8 +12,7 @@ public class Plugin {
     private String artifactId;
     private String version;
     private Map<String, String> configuration;
-    //todo plugin executions is another Class
-    private String executions;
+    private List<Execution> executions;
     private List<Dependency> dependencies;
 
 
@@ -49,11 +48,11 @@ public class Plugin {
         this.configuration = configuration;
     }
 
-    public String getExecutions() {
+    public List<Execution> getExecutions() {
         return this.executions;
     }
 
-    public void setExecutions(String executions) {
+    public void setExecutions(List<Execution> executions) {
         this.executions = executions;
     }
 
@@ -64,4 +63,5 @@ public class Plugin {
     public void setDependencies(List<Dependency> dependencies) {
         this.dependencies = dependencies;
     }
+
 }

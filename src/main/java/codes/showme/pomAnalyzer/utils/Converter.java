@@ -28,6 +28,9 @@ public class Converter {
         xs.alias("plugin", Plugin.class);
         xs.alias("profile", Profile.class);
         xs.alias("exclusion", Exclusion.class);
+        xs.alias("execution", Execution.class);
+        xs.alias("pluginRepository", Profile.Repository.class);
+        xs.alias("repository", Profile.Repository.class);
         xs.registerConverter(new MapEntryConverter());
         //注册使用了注解的VO
         return (Pom) xs.fromXML(xml);
