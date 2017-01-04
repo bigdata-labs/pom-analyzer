@@ -8,6 +8,7 @@ import java.util.List;
 public class Build {
     private PluginManagement pluginManagement;
     private List<Plugin> plugins;
+    private List<Dependency> extensions;
 
     private String outputDirectory;
     private String testOutputDirectory;
@@ -26,5 +27,13 @@ public class Build {
 
     public void setPlugins(List<Plugin> plugins) {
         this.plugins = plugins;
+    }
+
+    public List<Dependency> getExtensions() {
+        return this.extensions;
+    }
+
+    public void setExtensions(List<Dependency> extensions) {
+        this.extensions = extensions;
     }
 }

@@ -18,6 +18,7 @@ public class Pom {
     private String packaging;
     private String description;
     private String organization;
+    private String inceptionYear;
     private Scm scm;
     private Management issueManagement;
     private Management ciManagement;
@@ -65,6 +66,14 @@ public class Pom {
 
     public void setVersion(String version) {
         this.version = version;
+    }
+
+    public String getInceptionYear() {
+        return this.inceptionYear;
+    }
+
+    public void setInceptionYear(String inceptionYear) {
+        this.inceptionYear = inceptionYear;
     }
 
     public Map<String, String> getProperties() {

@@ -28,12 +28,20 @@ public class ConvertorTest {
         for (File file : files) {
             System.out.println(file.getName());
         }*/
-        String path = "D:\\temporary\\programme\\IdeaProjects\\pom-analyzer\\demo\\spring-boot-parent-1.4.3.RELEASE.pom";
-        File pomFile = new File(path);
-        Converter convertor = new Converter();
-        InputStream inputStream = new FileInputStream(pomFile);
-        Pom pom = convertor.buildPom(inputStream);
-        inputStream.close();
+        String path = "/Users/jeremie/pomPath";
+        File file = new File(path);
+        File[] subFile = file.listFiles();
+        if (subFile != null) {
+            for (File pomFile : subFile) {
+                if (pomFile.getName().endsWith(".pom")) {
+                    System.out.println(pomFile.getName());
+                    Converter convertor = new Converter();
+                    InputStream inputStream = new FileInputStream(pomFile);
+                    Pom pom = convertor.buildPom(inputStream);
+                    inputStream.close();
+                }
+            }
+        }
         System.out.println("123");
     }
 }

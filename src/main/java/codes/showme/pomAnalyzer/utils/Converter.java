@@ -25,6 +25,7 @@ public class Converter {
         xs.setMode(XStream.NO_REFERENCES);
         xs.alias("project", Pom.class);
         xs.alias("dependency", Dependency.class);
+        xs.alias("extension", Dependency.class);
         xs.alias("plugin", Plugin.class);
         xs.alias("profile", Profile.class);
         xs.alias("exclusion", Exclusion.class);
