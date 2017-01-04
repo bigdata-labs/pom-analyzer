@@ -11,9 +11,11 @@ public class Plugin {
     private String groupId;
     private String artifactId;
     private String version;
+    private String extensions;
     private Map<String, String> configuration;
     private List<Execution> executions;
     private List<Dependency> dependencies;
+
 
 
     public String getGroupId() {
@@ -38,6 +40,14 @@ public class Plugin {
 
     public void setVersion(String version) {
         this.version = version;
+    }
+
+    public String getExtensions() {
+        return this.extensions;
+    }
+
+    public void setExtensions(String extensions) {
+        this.extensions = extensions;
     }
 
     public Map<String, String> getConfiguration() {

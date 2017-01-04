@@ -12,6 +12,7 @@ public class Dependency {
     private String relativePath;
     private String scope;
     private String type;
+    private String optional;
     private String classifier;
     private List<Exclusion> exclusions;
 
@@ -73,6 +74,14 @@ public class Dependency {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getOptional() {
+        return this.optional;
+    }
+
+    public void setOptional(String optional) {
+        this.optional = optional;
     }
 
     public String getClassifier() {

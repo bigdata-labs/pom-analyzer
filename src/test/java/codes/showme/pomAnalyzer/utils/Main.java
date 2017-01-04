@@ -15,6 +15,8 @@ import java.util.concurrent.LinkedBlockingQueue;
 public class Main {
     private static String repoPath = "/Users/jeremie/programme/IdeaProjects/repo";
     private static String destinationPath = "/Users/jeremie/pomPath";
+/*    private static String repoPath = "D:/temporary/programme/maven/repo";
+    private static String destinationPath = "D:/pomPath";*/
 
     public static void main(String[] args) throws IOException {
         File parentFile = new File(repoPath);

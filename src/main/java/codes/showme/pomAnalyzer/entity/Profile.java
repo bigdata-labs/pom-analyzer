@@ -10,6 +10,7 @@ public class Profile {
     private String id;
     private Build build;
     private Activation activation;
+    private List<String> modules;
     private Map<String, String> properties;
     private List<Repository> repositories;
     private List<Repository> pluginRepositories;
@@ -36,6 +37,14 @@ public class Profile {
 
     public void setActivation(Activation activation) {
         this.activation = activation;
+    }
+
+    public List<String> getModules() {
+        return this.modules;
+    }
+
+    public void setModules(List<String> modules) {
+        this.modules = modules;
     }
 
     public List<Repository> getRepositories() {

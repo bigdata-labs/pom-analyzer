@@ -29,6 +29,7 @@ public class ConvertorTest {
             System.out.println(file.getName());
         }*/
         String path = "/Users/jeremie/pomPath";
+        //String path = "C:/Users/jeremie/Desktop/新建文件夹";
         File file = new File(path);
         File[] subFile = file.listFiles();
         if (subFile != null) {

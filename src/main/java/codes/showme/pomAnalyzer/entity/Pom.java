@@ -16,6 +16,7 @@ public class Pom {
     private String artifactId;
     private String version;
     private String packaging;
+    private List<String> modules;
     private String description;
     private String organization;
     private String inceptionYear;
@@ -23,9 +24,12 @@ public class Pom {
     private Management issueManagement;
     private Management ciManagement;
     private Map<String, String> properties;
+    private Map<String, String> distributionManagement;
     private DependencyManagement dependencyManagement;
     private List<Dependency> dependencies;
+    private List<License> licenses;
     private List<Profile> profiles;
+    private List<Developer> developers;
     private Build build;
 
     public Dependency getParent() {
@@ -34,6 +38,22 @@ public class Pom {
 
     public void setParent(Dependency parent) {
         this.parent = parent;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getUrl() {
+        return this.url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public String getModelVersion() {
@@ -68,76 +88,20 @@ public class Pom {
         this.version = version;
     }
 
-    public String getInceptionYear() {
-        return this.inceptionYear;
-    }
-
-    public void setInceptionYear(String inceptionYear) {
-        this.inceptionYear = inceptionYear;
-    }
-
-    public Map<String, String> getProperties() {
-        return this.properties;
-    }
-
-    public void setProperties(Map<String, String> properties) {
-        this.properties = properties;
-    }
-
-    public DependencyManagement getDependencyManagement() {
-        return this.dependencyManagement;
-    }
-
-    public void setDependencyManagement(DependencyManagement dependencyManagement) {
-        this.dependencyManagement = dependencyManagement;
-    }
-
-    public List<Dependency> getDependencies() {
-        return this.dependencies;
-    }
-
-    public void setDependencies(List<Dependency> dependencies) {
-        this.dependencies = dependencies;
-    }
-
-    public Build getBuild() {
-        return this.build;
-    }
-
-    public void setBuild(Build build) {
-        this.build = build;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getUrl() {
-        return this.url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public List<Profile> getProfiles() {
-        return this.profiles;
-    }
-
-    public void setProfiles(List<Profile> profiles) {
-        this.profiles = profiles;
-    }
-
     public String getPackaging() {
         return this.packaging;
     }
 
     public void setPackaging(String packaging) {
         this.packaging = packaging;
+    }
+
+    public List<String> getModules() {
+        return this.modules;
+    }
+
+    public void setModules(List<String> modules) {
+        this.modules = modules;
     }
 
     public String getDescription() {
@@ -154,6 +118,14 @@ public class Pom {
 
     public void setOrganization(String organization) {
         this.organization = organization;
+    }
+
+    public String getInceptionYear() {
+        return this.inceptionYear;
+    }
+
+    public void setInceptionYear(String inceptionYear) {
+        this.inceptionYear = inceptionYear;
     }
 
     public Scm getScm() {
@@ -178,6 +150,70 @@ public class Pom {
 
     public void setCiManagement(Management ciManagement) {
         this.ciManagement = ciManagement;
+    }
+
+    public Map<String, String> getProperties() {
+        return this.properties;
+    }
+
+    public void setProperties(Map<String, String> properties) {
+        this.properties = properties;
+    }
+
+    public Map<String, String> getDistributionManagement() {
+        return this.distributionManagement;
+    }
+
+    public void setDistributionManagement(Map<String, String> distributionManagement) {
+        this.distributionManagement = distributionManagement;
+    }
+
+    public DependencyManagement getDependencyManagement() {
+        return this.dependencyManagement;
+    }
+
+    public void setDependencyManagement(DependencyManagement dependencyManagement) {
+        this.dependencyManagement = dependencyManagement;
+    }
+
+    public List<Dependency> getDependencies() {
+        return this.dependencies;
+    }
+
+    public void setDependencies(List<Dependency> dependencies) {
+        this.dependencies = dependencies;
+    }
+
+    public List<License> getLicenses() {
+        return this.licenses;
+    }
+
+    public void setLicenses(List<License> licenses) {
+        this.licenses = licenses;
+    }
+
+    public List<Profile> getProfiles() {
+        return this.profiles;
+    }
+
+    public void setProfiles(List<Profile> profiles) {
+        this.profiles = profiles;
+    }
+
+    public List<Developer> getDevelopers() {
+        return this.developers;
+    }
+
+    public void setDevelopers(List<Developer> developers) {
+        this.developers = developers;
+    }
+
+    public Build getBuild() {
+        return this.build;
+    }
+
+    public void setBuild(Build build) {
+        this.build = build;
     }
 
     public static class Scm {
@@ -207,6 +243,84 @@ public class Pom {
 
         public void setDeveloperConnection(String developerConnection) {
             this.developerConnection = developerConnection;
+        }
+    }
+
+    public static class License {
+        private String name;
+        private String url;
+        private String distribution;
+        private String comments;
+
+        public String getName() {
+            return this.name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public String getUrl() {
+            return this.url;
+        }
+
+        public void setUrl(String url) {
+            this.url = url;
+        }
+
+        public String getDistribution() {
+            return this.distribution;
+        }
+
+        public void setDistribution(String distribution) {
+            this.distribution = distribution;
+        }
+
+        public String getComments() {
+            return this.comments;
+        }
+
+        public void setComments(String comments) {
+            this.comments = comments;
+        }
+    }
+
+    public static class Developer {
+        private String id;
+        private String name;
+        private String email;
+        private List<String> roles;
+
+        public String getId() {
+            return this.id;
+        }
+
+        public void setId(String id) {
+            this.id = id;
+        }
+
+        public String getName() {
+            return this.name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public String getEmail() {
+            return this.email;
+        }
+
+        public void setEmail(String email) {
+            this.email = email;
+        }
+
+        public List<String> getRoles() {
+            return this.roles;
+        }
+
+        public void setRoles(List<String> roles) {
+            this.roles = roles;
         }
     }
 }
