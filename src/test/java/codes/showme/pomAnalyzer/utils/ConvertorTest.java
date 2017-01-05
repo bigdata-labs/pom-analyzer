@@ -9,32 +9,25 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by jeremie on 2017/1/2.
  */
 public class ConvertorTest {
     private static Logger logger = LoggerFactory.getLogger(ConvertorTest.class);
+    public static List<String> blackList = Arrays.asList("plexus-1.0.4.pom", "plexus-1.0.5.pom", "plexus-root-1.0.3.pom");
 
     @Test
-    public void test() throws IOException {
-        /*String demoPath = "/Users/jeremie/programme/IdeaProjects/pom-analyzer/demo";
-        File filePath = new File(demoPath);
-        File[] files = filePath.listFiles();
-        if (files == null){
-            logger.error("pom files must not be null");
-            return;
-        }
-        for (File file : files) {
-            System.out.println(file.getName());
-        }*/
+    public void testBuildPom() throws IOException {
         String path = "/Users/jeremie/pomPath";
         //String path = "C:/Users/jeremie/Desktop/新建文件夹";
         File file = new File(path);
         File[] subFile = file.listFiles();
         if (subFile != null) {
             for (File pomFile : subFile) {
-                if (pomFile.getName().endsWith(".pom")) {
+                if (pomFile.getName().endsWith(".pom") && !blackList.contains(pomFile.getName())) {
                     System.out.println(pomFile.getName());
                     Converter convertor = new Converter();
                     InputStream inputStream = new FileInputStream(pomFile);
@@ -45,4 +38,6 @@ public class ConvertorTest {
         }
         System.out.println("123");
     }
+
+
 }
