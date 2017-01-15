@@ -40,6 +40,14 @@ public class PomContent extends Model implements Serializable {
         this.link = link;
     }
 
+    public long getId() {
+        return this.id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
     public String getContent() {
         return content;
     }
@@ -67,5 +75,9 @@ public class PomContent extends Model implements Serializable {
                 .setFirstRow(pageIndex * pageSize)
                 .setMaxRows(pageSize)
                 .findPagedList();
+    }
+
+    public static PomContent get(long id) {
+        return db().find(PomContent.class).where().eq("id", id).findUnique();
     }
 }
