@@ -8,7 +8,7 @@ import java.util.Map;
  * @author guanhong 2017/1/3 下午4:37.
  */
 public class Pom {
-    private Dependency parent;
+    private Pom parent;
     private String name;
     private String url;
     private String modelVersion;
@@ -19,15 +19,16 @@ public class Pom {
     private List<String> modules;
     private String description;
     private String organization;
+    private String relativePath;
     private Map<String, String> properties;
     private DependencyManagement dependencyManagement;
     private List<Dependency> dependencies;
 
-    public Dependency getParent() {
+    public Pom getParent() {
         return this.parent;
     }
 
-    public void setParent(Dependency parent) {
+    public void setParent(Pom parent) {
         this.parent = parent;
     }
 
@@ -109,6 +110,14 @@ public class Pom {
 
     public void setOrganization(String organization) {
         this.organization = organization;
+    }
+
+    public String getRelativePath() {
+        return this.relativePath;
+    }
+
+    public void setRelativePath(String relativePath) {
+        this.relativePath = relativePath;
     }
 
     public DependencyManagement getDependencyManagement() {

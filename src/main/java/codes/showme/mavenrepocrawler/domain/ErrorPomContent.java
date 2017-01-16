@@ -11,8 +11,8 @@ import java.io.Serializable;
  * Created by jeremie on 2017/1/14.
  */
 @Entity
-@Table(name = "error_id")
-public class ErrorId extends Model implements Serializable {
+@Table(name = "error_pom_content")
+public class ErrorPomContent extends Model implements Serializable {
     @Column(name = "id")
     private long id;
 
@@ -46,8 +46,7 @@ public class ErrorId extends Model implements Serializable {
         this.content = content;
     }
 
-    public void save() {
-        db().save(this);
+    public static ErrorPomContent get(long id) {
+        return db().find(ErrorPomContent.class).where().eq("id", id).findUnique();
     }
-
 }

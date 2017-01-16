@@ -1,6 +1,6 @@
 package codes.showme.pomAnalyzer;
 
-import codes.showme.mavenrepocrawler.domain.ErrorId;
+import codes.showme.mavenrepocrawler.domain.ErrorPomContent;
 import codes.showme.mavenrepocrawler.domain.PomContent;
 import codes.showme.pomAnalyzer.entity.simple.Pom;
 import codes.showme.pomAnalyzer.utils.SimpleConverter;
@@ -18,7 +18,7 @@ public class SimpleConvertTest {
     private static int pageSize = 1000;
     private static int totalCount = 0;
     private static int totalPage = 0;
-    private static int ThreadCount = 1000;
+    private static int ThreadCount = 10;
 
     public static void main(String[] args) {
         totalCount = PomContent.countPomContent();
@@ -48,19 +48,19 @@ public class SimpleConvertTest {
                     try {
                         Pom pom = simpleConverter.buildPom(pomContent.getContent());
                         if (pom == null) {
-                            ErrorId errorId = new ErrorId();
-                            errorId.setId(pomContent.getId());
-                            errorId.setLink(pomContent.getLink());
-                            errorId.setContent(pomContent.getContent());
-                            errorId.save();
+                            ErrorPomContent errorPomContent = new ErrorPomContent();
+                            errorPomContent.setId(pomContent.getId());
+                            errorPomContent.setLink(pomContent.getLink());
+                            errorPomContent.setContent(pomContent.getContent());
+                            errorPomContent.save();
                             System.out.println("Convert null error: " + pomContent.getId() + " : " + pomContent.getLink());
                         }
                     } catch (Exception e) {
-                        ErrorId errorId = new ErrorId();
-                        errorId.setId(pomContent.getId());
-                        errorId.setLink(pomContent.getLink());
-                        errorId.setContent(pomContent.getContent());
-                        errorId.save();
+                        ErrorPomContent errorPomContent = new ErrorPomContent();
+                        errorPomContent.setId(pomContent.getId());
+                        errorPomContent.setLink(pomContent.getLink());
+                        errorPomContent.setContent(pomContent.getContent());
+                        errorPomContent.save();
                         System.out.println("Convert exception error: " + pomContent.getId() + " : " + pomContent.getLink());
                     }
                 });

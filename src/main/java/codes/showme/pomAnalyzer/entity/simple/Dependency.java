@@ -9,7 +9,6 @@ public class Dependency {
     private String groupId;
     private String artifactId;
     private String version;
-    private String relativePath;
     private String scope;
     private String type;
     private String optional;
@@ -50,14 +49,6 @@ public class Dependency {
 
     public void overwriteVersion(final String version) {
         this.version = version;
-    }
-
-    public String getRelativePath() {
-        return this.relativePath;
-    }
-
-    public void setRelativePath(String relativePath) {
-        this.relativePath = relativePath;
     }
 
     public String getScope() {

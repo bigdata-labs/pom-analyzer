@@ -191,4 +191,13 @@ public class Link extends Model implements Serializable {
                 .setMaxRows(pageSize)
                 .findPagedList();
     }
+
+    public static Link findByUniqueVersion(String artifactId, String groupId, String artifact_version) {
+        return db().find(Link.class)
+                .where()
+                .eq("artifactId", artifactId)
+                .eq("groupId", groupId)
+                .eq("artifact_version", artifact_version)
+                .findUnique();
+    }
 }
