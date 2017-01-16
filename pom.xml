@@ -43,7 +43,6 @@
                 <artifactId>junit</artifactId>
                 <version>${junit.version}</version>
                 <scope>test</scope>
-                <exclusions></exclusions>
             </dependency>
             <dependency>
                 <groupId>com.thoughtworks.xstream</groupId>
