@@ -82,5 +82,12 @@ public class Dependency {
     public void setClassifier(String classifier) {
         this.classifier = classifier;
     }
+
+    public boolean simpleEqual(Dependency dependency) {
+        if (dependency == null) {
+            return false;
+        }
+        return this.getArtifactId().equals(dependency.getArtifactId()) && this.getGroupId().equals(dependency.getGroupId());
+    }
 }
 

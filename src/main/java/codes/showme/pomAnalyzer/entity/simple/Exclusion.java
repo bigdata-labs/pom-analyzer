@@ -23,5 +23,11 @@ public class Exclusion {
         this.artifactId = artifactId;
     }
 
+    public boolean simpleEqual(Exclusion exclusion) {
+        if (exclusion == null) {
+            return false;
+        }
+        return this.getArtifactId().equals(exclusion.getArtifactId()) && this.getGroupId().equals(exclusion.getGroupId());
+    }
 
 }
