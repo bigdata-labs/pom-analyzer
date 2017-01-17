@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>codes.showme</groupId>
+        <artifactId>test-parent-parent</artifactId>
+        <version>1.0</version>
+        <relativePath>./test-parent-parent-1.0.pom</relativePath>
+    </parent>
+    <artifactId>test-parent</artifactId>
+    <version>1.0</version>
+    <properties>
+        <mysql-connector.version>5.1.40</mysql-connector.version>
+    </properties>
+    <modules>
+        <module>test</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-connector.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>test2</groupId>
+                        <artifactId>test2</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>test6</groupId>
+                    <artifactId>test6</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
+</project>

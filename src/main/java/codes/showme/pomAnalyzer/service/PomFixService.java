@@ -46,6 +46,9 @@ public class PomFixService {
         List<Dependency> dependencyManagementList = new ArrayList<>();
         Map<String, String> propertyMap = new HashMap<>();
         Pom subPom = completePom;
+        if (completePom.getParent() != null && StringUtils.isBlank(completePom.getGroupId())) {
+            completePom.setGroupId(completePom.getParent().getGroupId());
+        }
         do {
             pomStack.add(subPom);
             subPom = subPom.getParent();
