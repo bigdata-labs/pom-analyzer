@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @author guanhong 2017/1/3 下午6:48.
+ * @author guanhong 2017/1/3.
  */
 public class MapEntryConverter implements Converter {
     public boolean canConvert(Class clazz) {

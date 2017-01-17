@@ -3,7 +3,7 @@ package codes.showme.pomAnalyzer.entity;
 import java.util.List;
 
 /**
- * @author guanhong 2017/1/3 下午4:17.
+ * @author guanhong 2017/1/3.
  */
 public class Dependency {
     private String groupId;

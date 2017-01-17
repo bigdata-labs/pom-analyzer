@@ -10,7 +10,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 /**
  * 转存pom文件
  *
- * @author guanhong 2017/1/4 下午6:36.
+ * @author guanhong 2017/1/4.
  */
 public class Main {
     private static String repoPath = "/Users/jeremie/programme/IdeaProjects/repo";

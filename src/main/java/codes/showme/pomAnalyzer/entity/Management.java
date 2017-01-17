@@ -1,7 +1,7 @@
 package codes.showme.pomAnalyzer.entity;
 
 /**
- * @author guanhong 2017/1/3 下午7:05.
+ * @author guanhong 2017/1/3.
  */
 public class Management {
     private String system;

@@ -8,7 +8,7 @@ import com.thoughtworks.xstream.XStream;
 import java.io.InputStream;
 
 /**
- * @author guanhong 2017/1/3 下午5:02.
+ * @author guanhong 2017/1/3.
  */
 public class SimpleConverter {
 

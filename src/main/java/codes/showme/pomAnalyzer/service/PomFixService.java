@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 import java.util.*;
 
 /**
- * @author guanhong 2017/1/16 下午4:35.
+ * @author guanhong 2017/1/16.
  */
 public class PomFixService {
 

@@ -1,7 +1,7 @@
 package codes.showme.pomAnalyzer.entity;
 
 /**
- * @author guanhong 2017/1/3 下午4:54.
+ * @author guanhong 2017/1/3.
  */
 public class Exclusion {
     private String groupId;

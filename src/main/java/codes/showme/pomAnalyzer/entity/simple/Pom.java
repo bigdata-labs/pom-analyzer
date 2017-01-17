@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author guanhong 2017/1/3 下午4:37.
+ * @author guanhong 2017/1/3.
  */
 public class Pom {
     private Pom parent;

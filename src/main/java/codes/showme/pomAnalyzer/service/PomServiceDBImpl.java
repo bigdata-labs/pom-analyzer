@@ -8,7 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * @author guanhong 2017/1/16 下午6:06.
+ * @author guanhong 2017/1/16.
  */
 public class PomServiceDBImpl implements PomService {
     private static final Logger logger = LoggerFactory.getLogger(PomServiceDBImpl.class);

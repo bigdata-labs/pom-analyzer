@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author guanhong 2017/1/3 下午5:26.
+ * @author guanhong 2017/1/3.
  */
 public class Profile {
     private String id;

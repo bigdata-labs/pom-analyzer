@@ -14,7 +14,7 @@ import java.util.Map;
 import java.util.regex.Pattern;
 
 /**
- * @author guanhong 2017/1/5 下午4:25.
+ * @author guanhong 2017/1/5.
  */
 public class SimpleConverterTest {
 
