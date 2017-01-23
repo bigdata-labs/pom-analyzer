@@ -1,6 +1,7 @@
 package codes.showme.pomAnalyzer.service;
 
 import codes.showme.pomAnalyzer.entity.simple.Dependency;
+import codes.showme.pomAnalyzer.entity.simple.DependencyManagement;
 import codes.showme.pomAnalyzer.entity.simple.Exclusion;
 import codes.showme.pomAnalyzer.entity.simple.Pom;
 import org.apache.commons.lang3.StringUtils;
@@ -46,16 +47,16 @@ public class PomFixService {
         List<Dependency> dependencyManagementList = new ArrayList<>();
         Map<String, String> propertyMap = new HashMap<>();
         Pom subPom = completePom;
-        if (completePom.getParent() != null && StringUtils.isBlank(completePom.getGroupId())) {
-            completePom.setGroupId(completePom.getParent().getGroupId());
-        }
         do {
             pomStack.add(subPom);
             subPom = subPom.getParent();
-        } while (subPom.getParent() != null);
+        } while (subPom != null);
         //整体构建dependency和dependencyManagement列表
         while (!pomStack.empty()) {
             Pom pom = pomStack.pop();
+            if (pom.getParent() != null && StringUtils.isBlank(pom.getGroupId())) {
+                pom.setGroupId(pom.getParent().getGroupId());
+            }
             List<Dependency> dependencyListTemp = pom.getDependencies();
             List<Dependency> dependencyManagementListTemp = pom.getDependencyManagement() != null ? pom.getDependencyManagement().getDependencies() : null;
             Map<String, String> propertyMapTemp = pom.getProperties();
@@ -87,6 +88,9 @@ public class PomFixService {
         }
 
         completePom.setDependencies(dependencyList);
+        if (completePom.getDependencyManagement() == null) {
+            completePom.setDependencyManagement(new DependencyManagement());
+        }
         completePom.getDependencyManagement().setDependencies(dependencyManagementList);
         completePom.setProperties(propertyMap);
         return completePom;
@@ -148,6 +152,7 @@ public class PomFixService {
         completePom.setGroupId(getByProperties(propertiesTrans, completePom.getGroupId()));
         completePom.setArtifactId(getByProperties(propertiesTrans, completePom.getArtifactId()));
         completePom.setVersion(getByProperties(propertiesTrans, completePom.getVersion()));
+        propertiesTrans.put("${project.version}", completePom.getVersion());
         for (Dependency dependency : completePom.getDependencyManagement().getDependencies()) {
             dependency.setVersion(getByProperties(propertiesTrans, dependency.getVersion()));
         }
@@ -166,6 +171,9 @@ public class PomFixService {
      * @return 匹配后的字符串
      */
     private String getByProperties(Map<String, String> propertiesTrans, String temp) {
+        if (StringUtils.isBlank(temp)) {
+            return temp;
+        }
         Pattern pattern = Pattern.compile("\\$\\{.+\\}");
         if (pattern.matcher(temp).matches()) {
             return propertiesTrans.getOrDefault(temp, temp);

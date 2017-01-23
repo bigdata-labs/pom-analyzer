@@ -1,5 +1,7 @@
 package codes.showme.pomAnalyzer.entity.simple;
 
+import org.apache.commons.lang3.StringUtils;
+
 /**
  * @author guanhong 2017/1/3.
  */
@@ -27,7 +29,7 @@ public class Exclusion {
         if (exclusion == null) {
             return false;
         }
-        return this.getArtifactId().equals(exclusion.getArtifactId()) && this.getGroupId().equals(exclusion.getGroupId());
+        return StringUtils.equals(this.artifactId, exclusion.artifactId) && StringUtils.equals(this.groupId, exclusion.groupId);
     }
 
 }

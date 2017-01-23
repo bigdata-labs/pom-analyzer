@@ -29,7 +29,7 @@ public class PomServiceDBImpl implements PomService {
             return simpleConverter.buildPom(pomContent.getContent());
         } catch (Exception e) {
             logger.error("pom转换失败：" + pomContent.getId() + ":" + pomContent.getLink(), e);
+            throw e;
         }
-        return null;
     }
 }

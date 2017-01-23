@@ -1,5 +1,7 @@
 package codes.showme.pomAnalyzer.entity.simple;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.List;
 
 /**
@@ -87,7 +89,7 @@ public class Dependency {
         if (dependency == null) {
             return false;
         }
-        return this.getArtifactId().equals(dependency.getArtifactId()) && this.getGroupId().equals(dependency.getGroupId());
+        return StringUtils.equals(this.artifactId, dependency.artifactId) && StringUtils.equals(this.groupId, dependency.groupId);
     }
 }
 
