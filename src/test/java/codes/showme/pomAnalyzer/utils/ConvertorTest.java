@@ -29,9 +29,9 @@ public class ConvertorTest {
             for (File pomFile : subFile) {
                 if (pomFile.getName().endsWith(".pom") && !blackList.contains(pomFile.getName())) {
                     System.out.println(pomFile.getName());
-                    Converter convertor = new Converter();
+                    Converter converter = new Converter();
                     InputStream inputStream = new FileInputStream(pomFile);
-                    Pom pom = convertor.buildPom(inputStream);
+                    Pom pom = converter.buildPom(inputStream);
                     inputStream.close();
                 }
             }

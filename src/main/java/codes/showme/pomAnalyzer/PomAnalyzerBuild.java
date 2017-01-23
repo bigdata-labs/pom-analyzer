@@ -1,5 +1,7 @@
 package codes.showme.pomAnalyzer;
 
+import codes.showme.config.Configuration;
+import codes.showme.config.PropertiesConfig;
 import codes.showme.mavenrepocrawler.domain.PomContent;
 import codes.showme.pomAnalyzer.entity.simple.Exclusion;
 import codes.showme.pomAnalyzer.entity.simple.Pom;
@@ -30,12 +32,13 @@ public class PomAnalyzerBuild implements Runnable {
     private static int totalCount = 0;
     private static int totalPage = 0;
     private static int ThreadCount = 20;
+    private static final Configuration config = new PropertiesConfig();
 
     private static List<Long> BLACK_LIST = Arrays.asList(3011825L, 4695606L);
 
-    private static String BASE_PATH = "/Users/jeremie/programme/IdeaProjects/pom-analyzer/result";
-    private static String DEPENDECY = "dependency.txt";
-    private static File DEPENDECY_FILE = new File(BASE_PATH, DEPENDECY);
+    private static String BASE_PATH = config.getDependenciesResultDirectory();
+    private static String DEPENDENCY = "dependency.txt";
+    private static File DEPENDENCY_FILE = new File(BASE_PATH, DEPENDENCY);
 
     private static SimpleConverter simpleConverter = new SimpleConverter();
     private static PomFixService pomFixService = new PomFixService();
@@ -80,7 +83,7 @@ public class PomAnalyzerBuild implements Runnable {
                             .append(exclusion.getArtifactId());
                 }
             }
-            writeFile(DEPENDECY_FILE, content.toString());
+            writeFile(DEPENDENCY_FILE, content.toString());
         });
     }
 

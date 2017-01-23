@@ -3,6 +3,7 @@ package codes.showme.pomAnalyzer.utils;
 import codes.showme.pomAnalyzer.entity.simple.Dependency;
 import codes.showme.pomAnalyzer.entity.simple.Pom;
 import org.apache.commons.lang3.StringUtils;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.File;
@@ -16,6 +17,7 @@ import java.util.regex.Pattern;
 /**
  * @author guanhong 2017/1/5.
  */
+//@Ignore
 public class SimpleConverterTest {
 
     @Test

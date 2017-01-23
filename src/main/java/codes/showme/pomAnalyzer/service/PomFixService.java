@@ -28,7 +28,7 @@ public class PomFixService {
      */
     public Pom fixPom(Pom completePom) {
         //合并父母pom
-        completePom = mergeDenpendency(completePom);
+        completePom = mergeDependency(completePom);
         //填充version和合并Exclusion
         completePom = fillDenpendency(completePom);
         //根据properties填充version
@@ -41,7 +41,7 @@ public class PomFixService {
      * @param completePom pom
      * @return pom
      */
-    private Pom mergeDenpendency(Pom completePom) {
+    private Pom mergeDependency(Pom completePom) {
         Stack<Pom> pomStack = new Stack<>();
         List<Dependency> dependencyList = new ArrayList<>();
         List<Dependency> dependencyManagementList = new ArrayList<>();
