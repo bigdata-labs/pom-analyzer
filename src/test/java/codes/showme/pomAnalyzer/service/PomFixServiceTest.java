@@ -1,5 +1,6 @@
 package codes.showme.pomAnalyzer.service;
 
+import codes.showme.pomAnalyzer.PomAnalyzerBuild;
 import codes.showme.pomAnalyzer.entity.simple.Pom;
 import codes.showme.pomAnalyzer.utils.SimpleConverter;
 import org.junit.Test;
@@ -24,6 +25,6 @@ public class PomFixServiceTest {
         pomFixService.pomService = (artifactId, groupId, version) -> simpleConverter.buildPom(new File(POM_URL, groupId + "-" + artifactId + "-" + version + ".pom"));
         pomFixService.completePom(pom);
         pomFixService.fixPom(pom);
-        System.out.println("123");
+        PomAnalyzerBuild.writeDependencies(pom);
     }
 }

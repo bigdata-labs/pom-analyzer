@@ -23,8 +23,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * @author guanhong 2017/1/20.
  */
-public class PomFixServiceTest implements Runnable {
-    private final static Logger logger = LoggerFactory.getLogger(PomFixServiceTest.class);
+public class PomAnalyzerBuild implements Runnable {
+    private final static Logger logger = LoggerFactory.getLogger(PomAnalyzerBuild.class);
     private static AtomicInteger pageIndex = new AtomicInteger(0);
     private static int pageSize = 1000;
     private static int totalCount = 0;
@@ -50,7 +50,7 @@ public class PomFixServiceTest implements Runnable {
         }
         ExecutorService executorService = Executors.newFixedThreadPool(ThreadCount + 5);
         for (int i = 0; i < ThreadCount; i++) {
-            executorService.execute(new PomFixServiceTest());
+            executorService.execute(new PomAnalyzerBuild());
         }
         executorService.shutdown();
         logger.info("end work!");
@@ -61,7 +61,7 @@ public class PomFixServiceTest implements Runnable {
     private static String LINE_CONTENT_SEPARATOR = ",";
 
 
-    private static void writeDependencies(Pom pom) {
+    public static void writeDependencies(Pom pom) {
         String pomIdent = pom.getGroupId() + DEPENDENCY_IDENT_SEPARATOR + pom.getArtifactId() + DEPENDENCY_IDENT_SEPARATOR + pom.getVersion();
         pom.getDependencies().forEach(dependency -> {
             StringBuilder content = new StringBuilder(pomIdent)

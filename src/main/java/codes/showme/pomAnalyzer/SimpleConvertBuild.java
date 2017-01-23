@@ -13,7 +13,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * Created by jeremie on 2017/1/14.
  */
-public class SimpleConvertTest {
+public class SimpleConvertBuild {
     private static AtomicInteger pageIndex = new AtomicInteger(0);
     private static int pageSize = 1000;
     private static int totalCount = 0;
