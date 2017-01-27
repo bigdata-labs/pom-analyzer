@@ -32,4 +32,9 @@ public class PropertiesConfig implements Configuration, Serializable{
     public String getDependenciesResultDirectory() {
         return properties.getProperty("dependencies_result_path_directory", "");
     }
+
+    @Override
+    public String getDependenciesFileName() {
+        return properties.getProperty("dependencies_result_file_name", "dependency.txt");
+    }
 }

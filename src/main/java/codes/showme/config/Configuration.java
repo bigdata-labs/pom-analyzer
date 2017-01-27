@@ -6,4 +6,6 @@ package codes.showme.config;
 public interface Configuration {
 
     String getDependenciesResultDirectory();
+
+    String getDependenciesFileName();
 }

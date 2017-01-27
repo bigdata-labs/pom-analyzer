@@ -37,8 +37,8 @@ public class PomAnalyzerBuild implements Runnable {
     private static List<Long> BLACK_LIST = Arrays.asList(3011825L, 4695606L);
 
     private static String BASE_PATH = config.getDependenciesResultDirectory();
-    private static String DEPENDENCY = "dependency.txt";
-    private static File DEPENDENCY_FILE = new File(BASE_PATH, DEPENDENCY);
+    private static String DEPENDENCY_FILE_NAME = config.getDependenciesFileName();
+    private static File DEPENDENCY_FILE = new File(BASE_PATH, DEPENDENCY_FILE_NAME);
 
     private static SimpleConverter simpleConverter = new SimpleConverter();
     private static PomFixService pomFixService = new PomFixService();
