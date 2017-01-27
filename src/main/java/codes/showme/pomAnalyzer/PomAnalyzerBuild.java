@@ -31,7 +31,7 @@ public class PomAnalyzerBuild implements Runnable {
     private static int pageSize = 1000;
     private static int totalCount = 0;
     private static int totalPage = 0;
-    private static int ThreadCount = 20;
+    private static int ThreadCount = 100;
     private static final Configuration config = new PropertiesConfig();
 
     private static List<Long> BLACK_LIST = Arrays.asList(3011825L, 4695606L);
@@ -98,11 +98,12 @@ public class PomAnalyzerBuild implements Runnable {
     @Override
     public void run() {
         while (true) {
-            PagedList<PomContent> contentPagedList = PomContent.listPomContentOrderById(pageIndex.getAndIncrement(), pageSize);
+            int index = pageIndex.getAndIncrement();
+            PagedList<PomContent> contentPagedList = PomContent.listPomContentOrderById(index, pageSize);
             if (contentPagedList == null || contentPagedList.getList().size() <= 0) {
                 break;
             }
-            System.out.println("running page: " + pageIndex + "/" + totalPage);
+            logger.info("running page: " + index + "/" + totalPage);
             contentPagedList.getList().forEach(pomContent -> {
                 if (BLACK_LIST.contains(pomContent.getId())) {
                     return;
