@@ -57,6 +57,9 @@ public class PomFixService {
             if (pom.getParent() != null && StringUtils.isBlank(pom.getGroupId())) {
                 pom.setGroupId(pom.getParent().getGroupId());
             }
+            if (pom.getParent() != null && StringUtils.isBlank(pom.getVersion())) {
+                pom.setGroupId(pom.getParent().getVersion());
+            }
             List<Dependency> dependencyListTemp = pom.getDependencies();
             List<Dependency> dependencyManagementListTemp = pom.getDependencyManagement() != null ? pom.getDependencyManagement().getDependencies() : null;
             Map<String, String> propertyMapTemp = pom.getProperties();
