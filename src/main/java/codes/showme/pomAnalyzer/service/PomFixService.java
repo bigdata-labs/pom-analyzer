@@ -58,7 +58,7 @@ public class PomFixService {
                 pom.setGroupId(pom.getParent().getGroupId());
             }
             if (pom.getParent() != null && StringUtils.isBlank(pom.getVersion())) {
-                pom.setGroupId(pom.getParent().getVersion());
+                pom.setVersion(pom.getParent().getVersion());
             }
             List<Dependency> dependencyListTemp = pom.getDependencies();
             List<Dependency> dependencyManagementListTemp = pom.getDependencyManagement() != null ? pom.getDependencyManagement().getDependencies() : null;
